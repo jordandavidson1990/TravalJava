@@ -14,6 +14,8 @@ public class FlightManagerTest {
     Destination destination;
     Passenger passenger1;
     Passenger passenger2;
+    Passenger passenger3;
+    FlightManager flightManager;
 
     @Before
     public void setUp() throws Exception {
@@ -27,6 +29,7 @@ public class FlightManagerTest {
 
         passenger1 = new Passenger("Jack", 20, 2);
         passenger2 = new Passenger("Kate", 10, 1);
+        passenger3 = new Passenger("Charlie", 10, 3);
 
         flight.bookPassenger(passenger1);
         flight.bookPassenger(passenger2);
@@ -57,4 +60,11 @@ public class FlightManagerTest {
     public void canCalculateHowMuchBaggageIsLeftOnFlight() {
         assertEquals(24950, flight.remainingWeight());
     }
+//
+//    @Test
+//    public void canBookPassengerToFlight() {
+//        flightManager.processBookingToFlight(passenger3, flight);
+//        assertEquals(3, flight.getPassengersNumber());
+//        assertEquals(1, passenger3.getNumberOfFlights());
+//    }
 }

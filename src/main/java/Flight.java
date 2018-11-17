@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Flight {
 
@@ -52,7 +53,7 @@ public class Flight {
     }
 
     public void bookPassenger(Passenger passenger) {
-        if(getAvailableSeatsRemaining() >= 1)
+//        if(getAvailableSeatsRemaining() >= 1)
             this.bookedPassengers.add(passenger);
     }
 
@@ -78,5 +79,14 @@ public class Flight {
 
     public int remainingWeight() {
         return this.startingBaggageAllowance()-this.getTotalBaggageWeight();
+    }
+
+    public int getSeatNumber(Passenger passenger) {
+        int seatIndex = this.getBookedPassengers().indexOf(passenger);
+        return seatIndex + 1;
+    }
+
+    public void randomiseSeatNumbers() {
+        Collections.shuffle(this.getBookedPassengers());
     }
 }
